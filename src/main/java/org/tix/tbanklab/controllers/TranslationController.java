@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.tix.tbanklab.DTO.TranslationDTO;
+import org.tix.tbanklab.dto.TranslationDTO;
 import org.tix.tbanklab.service.TranslationService;
 
 @Controller

@@ -1,7 +1,7 @@
 package org.tix.tbanklab.utils.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.tix.tbanklab.DTO.TranslationDTO;
+import org.tix.tbanklab.dto.TranslationDTO;
 import org.tix.tbanklab.model.TranslationRequest;
 
 @Mapper

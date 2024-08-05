@@ -2,7 +2,7 @@ package org.tix.tbanklab.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
-import org.tix.tbanklab.DTO.TranslationDTO;
+import org.tix.tbanklab.dto.TranslationDTO;
 import org.tix.tbanklab.model.TranslationRequest;
 import org.tix.tbanklab.repo.TranslationRepository;
 import org.tix.tbanklab.utils.mappers.TranslationMapper;

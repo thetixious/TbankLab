@@ -1,4 +1,4 @@
-package org.tix.tbanklab.DTO;
+package org.tix.tbanklab.dto;
 
 import lombok.Data;
 
