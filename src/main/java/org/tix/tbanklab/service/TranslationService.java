@@ -11,10 +11,12 @@ import org.tix.tbanklab.utils.mappers.TranslationMapper;
 public class TranslationService {
     private final TranslationMapper translationMapper;
     private final TranslationRepository translationRepository;
+    private final APIService apiService;
 
-    public TranslationService(TranslationMapper translationMapper, TranslationRepository translationRepository) {
+    public TranslationService(TranslationMapper translationMapper, TranslationRepository translationRepository, APIService apiService) {
         this.translationMapper = translationMapper;
         this.translationRepository = translationRepository;
+        this.apiService = apiService;
     }
 
     public TranslationRequest requestPreparation(TranslationDTO translationDTO, HttpServletRequest request){
@@ -25,7 +27,7 @@ public class TranslationService {
 
     public void translate(TranslationDTO translationDTO, HttpServletRequest request) {
         TranslationRequest translationRequest = requestPreparation(translationDTO,request);
-        translationRequest.setResultText("Привет, мир!");
+        translationRequest.setResultText(apiService.translate(translationDTO.getSourceLanguage(),translationDTO.getTargetLanguage(),translationDTO.getTextForTranslation()));
         translationRepository.save(translationRequest);
         System.out.println(translationRequest.getAddressRequest() + " " + translationRequest.getTextForTranslation() + " " + translationRequest.getResultText());
 
