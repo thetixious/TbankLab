@@ -27,7 +27,7 @@ public class TranslationService {
 
     public void translate(TranslationDTO translationDTO, HttpServletRequest request) {
         TranslationRequest translationRequest = requestPreparation(translationDTO,request);
-        translationRequest.setResultText(apiService.translate(translationDTO.getSourceLanguage(),translationDTO.getTargetLanguage(),translationDTO.getTextForTranslation()));
+        translationRequest.setResultText(apiService.translate(translationDTO));
         translationRepository.save(translationRequest);
         System.out.println(translationRequest.getAddressRequest() + " " + translationRequest.getTextForTranslation() + " " + translationRequest.getResultText());
 
