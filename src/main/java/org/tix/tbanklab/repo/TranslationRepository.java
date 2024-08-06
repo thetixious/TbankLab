@@ -12,9 +12,9 @@ public class TranslationRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public int save(TranslationRequest request){
+    public int save(TranslationRequest request) {
         return jdbcTemplate.update("INSERT INTO translation_request(ip_address, translation_text, result_text) VALUES (?,?,?)",
-                request.getAddressRequest(),request.getTextForTranslation(), request.getResultText());
+                request.getAddressRequest(), request.getTextForTranslation(), request.getResultText());
     }
 
 }

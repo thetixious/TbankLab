@@ -19,17 +19,17 @@ public class TranslationService {
         this.apiService = apiService;
     }
 
-    public TranslationRequest requestPreparation(TranslationDTO translationDTO, HttpServletRequest request){
+    public TranslationRequest requestPreparation(TranslationDTO translationDTO, HttpServletRequest request) {
         TranslationRequest translationRequest = translationMapper.toEntity(translationDTO);
-        translationRequest.setAddressRequest(request.getRemoteAddr().toString());
+        translationRequest.setAddressRequest(request.getRemoteAddr());
         return translationRequest;
     }
 
-    public void translate(TranslationDTO translationDTO, HttpServletRequest request) {
-        TranslationRequest translationRequest = requestPreparation(translationDTO,request);
+    public String translate(TranslationDTO translationDTO, HttpServletRequest request) {
+        TranslationRequest translationRequest = requestPreparation(translationDTO, request);
         translationRequest.setResultText(apiService.translate(translationDTO));
         translationRepository.save(translationRequest);
-        System.out.println(translationRequest.getAddressRequest() + " " + translationRequest.getTextForTranslation() + " " + translationRequest.getResultText());
+        return translationRequest.getResultText();
 
     }
 }

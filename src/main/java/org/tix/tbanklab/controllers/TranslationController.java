@@ -17,9 +17,8 @@ public class TranslationController {
     }
 
     @PostMapping("/translate")
-    public ResponseEntity<?> translate(@RequestBody TranslationDTO translationDTO, HttpServletRequest request){
-        translationService.translate(translationDTO,request);
-        return ResponseEntity.ok(request.getRemoteAddr());
+    public ResponseEntity<?> translate(@RequestBody TranslationDTO translationDTO, HttpServletRequest request) {
+        return ResponseEntity.ok(translationService.translate(translationDTO, request));
     }
 
 }
