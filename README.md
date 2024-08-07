@@ -58,6 +58,19 @@
 }
 ```
 В репозитории также представлен insomnia.json 
+Или сURL запрос для удобства 
+```bash
+curl --request POST \
+  --url http://localhost:8080/translate \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/9.2.0' \
+  --data '{
+    "sourceLanguage": "en",
+    "targetLanguage": "ru",
+		"textForTranslation": "Hello, world!"
+	
+}'
+```
 
 
 
